@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.TaskFormController"
+      styleClass="form-dialog"
+      spacing="0"
+      prefWidth="480" prefHeight="500">
+
+    <!-- Form Header -->
+    <HBox styleClass="form-header" alignment="CENTER_LEFT">
+        <Label fx:id="formTitleLabel" text="Tambah Tugas Baru" styleClass="form-title"/>
+    </HBox>
+
+    <!-- Form Body -->
+    <VBox styleClass="form-body" spacing="20" VBox.vgrow="ALWAYS">
+
+        <!-- Task Title -->
+        <VBox spacing="6">
+            <Label text="Judul Tugas *" styleClass="form-label"/>
+            <TextField fx:id="titleField"
+                       promptText="Masukkan judul tugas..."
+                       styleClass="form-input"/>
+        </VBox>
+
+        <!-- Description -->
+        <VBox spacing="6" VBox.vgrow="ALWAYS">
+            <Label text="Deskripsi" styleClass="form-label"/>
+            <TextArea fx:id="descriptionArea"
+                      promptText="Masukkan deskripsi tugas (opsional)..."
+                      styleClass="form-textarea"
+                      prefHeight="100"
+                      wrapText="true"/>
+        </VBox>
+
+        <!-- Due Date -->
+        <VBox spacing="6">
+            <Label text="Tanggal Jatuh Tempo *" styleClass="form-label"/>
+            <DatePicker fx:id="dueDatePicker"
+                        styleClass="form-datepicker"
+                        maxWidth="Infinity"/>
+        </VBox>
+
+        <!-- Error Label -->
+        <Label fx:id="errorLabel"
+               text=""
+               styleClass="error-label"
+               wrapText="true"/>
+
+    </VBox>
+
+    <!-- Form Footer / Buttons -->
+    <HBox styleClass="form-footer" alignment="CENTER_RIGHT" spacing="12">
+        <Button text="Batal"
+                onAction="#handleCancel"
+                styleClass="btn-secondary"/>
+        <Button fx:id="saveButton"
+                text="Tambah Tugas"
+                onAction="#handleSave"
+                styleClass="btn-primary"/>
+    </HBox>
+
+</VBox>
