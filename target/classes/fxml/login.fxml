@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="controller.LoginController"
+           styleClass="login-root"
+           prefWidth="500" prefHeight="580">
+
+    <!-- Background -->
+    <VBox alignment="CENTER" styleClass="login-bg">
+
+        <!-- Login Card -->
+        <VBox fx:id="loginCard"
+              styleClass="login-card"
+              alignment="CENTER"
+              spacing="0"
+              maxWidth="380">
+
+            <!-- Logo Section -->
+            <VBox alignment="CENTER" styleClass="login-logo-section">
+                <Label text="✓" styleClass="login-logo-icon"/>
+                <Label text="TaskFlow" styleClass="login-logo-text"/>
+                <Label text="Kelola tugas dengan mudah &amp; efisien" styleClass="login-tagline"/>
+            </VBox>
+
+            <!-- Form Section -->
+            <VBox styleClass="login-form-section" spacing="16">
+
+                <!-- Username -->
+                <VBox spacing="6">
+                    <Label text="Username" styleClass="form-label"/>
+                    <TextField fx:id="usernameField"
+                               promptText="Masukkan username"
+                               styleClass="form-input"/>
+                </VBox>
+
+                <!-- Password -->
+                <VBox spacing="6">
+                    <Label text="Password" styleClass="form-label"/>
+                    <PasswordField fx:id="passwordField"
+                                   promptText="Masukkan password"
+                                   styleClass="form-input"/>
+                </VBox>
+
+                <!-- Error Label -->
+                <Label fx:id="errorLabel"
+                       text=""
+                       styleClass="error-label"
+                       wrapText="true"/>
+
+                <!-- Login Button -->
+                <Button fx:id="loginButton"
+                        text="Masuk ke TaskFlow"
+                        onAction="#handleLogin"
+                        styleClass="btn-primary"
+                        maxWidth="Infinity"
+                        prefHeight="48"/>
+
+            </VBox>
+
+            <!-- Footer -->
+            <VBox alignment="CENTER" styleClass="login-footer">
+                <Label text="Default: admin / admin123" styleClass="hint-text"/>
+            </VBox>
+
+        </VBox>
+
+    </VBox>
+
+</StackPane>
