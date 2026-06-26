@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.DashboardController"
+            styleClass="app-root"
+            prefWidth="1100" prefHeight="700">
+
+    <!-- ===== SIDEBAR ===== -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="240" spacing="0">
+
+            <!-- Brand -->
+            <HBox styleClass="sidebar-brand" alignment="CENTER_LEFT" spacing="12">
+                <Label text="✓" styleClass="sidebar-logo"/>
+                <Label text="TaskFlow" styleClass="sidebar-brand-text"/>
+            </HBox>
+
+            <!-- Navigation -->
+            <VBox styleClass="sidebar-nav" spacing="4" VBox.vgrow="ALWAYS">
+
+                <Label text="MENU" styleClass="nav-section-label"/>
+
+                <Button text="  🏠  Dashboard"
+                        onAction="#goToDashboard"
+                        styleClass="nav-btn, nav-btn-active"
+                        maxWidth="Infinity"/>
+
+                <Button text="  📋  Tugas Saya"
+                        onAction="#goToTasks"
+                        styleClass="nav-btn"
+                        maxWidth="Infinity"/>
+
+            </VBox>
+
+            <!-- User Profile at Bottom -->
+            <VBox styleClass="sidebar-profile" spacing="8">
+                <Separator/>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="👤" style="-fx-font-size: 20px;"/>
+                    <VBox>
+                        <Label fx:id="usernameLabel" text="Admin" styleClass="profile-name"/>
+                        <Label text="Administrator" styleClass="profile-role"/>
+                    </VBox>
+                </HBox>
+                <Button text="🚪  Logout"
+                        onAction="#handleLogout"
+                        styleClass="btn-logout"
+                        maxWidth="Infinity"/>
+            </VBox>
+
+        </VBox>
+    </left>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <center>
+        <VBox styleClass="main-content" spacing="0">
+
+            <!-- Header -->
+            <HBox styleClass="main-header" alignment="CENTER_LEFT" spacing="16">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="Dashboard" styleClass="page-title"/>
+                    <Label fx:id="dateLabel" text="" styleClass="page-subtitle"/>
+                </VBox>
+            </HBox>
+
+            <!-- Content Scrollable -->
+            <ScrollPane fitToWidth="true" styleClass="content-scroll" VBox.vgrow="ALWAYS">
+                <VBox styleClass="content-body" spacing="28">
+
+                    <!-- Welcome Section -->
+                    <VBox styleClass="welcome-section" spacing="6">
+                        <Label fx:id="welcomeLabel" text="Selamat datang! 👋"
+                               styleClass="welcome-title"/>
+                        <Label text="Ini adalah ringkasan aktivitas tugas kamu hari ini."
+                               styleClass="welcome-subtitle"/>
+                    </VBox>
+
+                    <!-- Stats Cards -->
+                    <VBox spacing="12">
+                        <Label text="📊 Ringkasan Tugas" styleClass="section-title"/>
+
+                        <HBox spacing="20">
+
+                            <!-- Total Tasks Card -->
+                            <VBox styleClass="stat-card, stat-card-blue" HBox.hgrow="ALWAYS" spacing="8">
+                                <Label text="Total Tugas" styleClass="stat-label"/>
+                                <Label fx:id="totalTaskLabel" text="0" styleClass="stat-number"/>
+                                <Label text="semua tugas terdaftar" styleClass="stat-desc"/>
+                            </VBox>
+
+                            <!-- Completed Card -->
+                            <VBox styleClass="stat-card, stat-card-green" HBox.hgrow="ALWAYS" spacing="8">
+                                <Label text="Selesai" styleClass="stat-label"/>
+                                <Label fx:id="completedTaskLabel" text="0" styleClass="stat-number, stat-number-green"/>
+                                <Label text="tugas telah diselesaikan" styleClass="stat-desc"/>
+                            </VBox>
+
+                            <!-- Pending Card -->
+                            <VBox styleClass="stat-card, stat-card-orange" HBox.hgrow="ALWAYS" spacing="8">
+                                <Label text="Pending" styleClass="stat-label"/>
+                                <Label fx:id="pendingTaskLabel" text="0" styleClass="stat-number, stat-number-orange"/>
+                                <Label text="tugas masih dalam proses" styleClass="stat-desc"/>
+                            </VBox>
+
+                        </HBox>
+                    </VBox>
+
+                    <!-- Quick Actions -->
+                    <VBox spacing="12">
+                        <Label text="⚡ Aksi Cepat" styleClass="section-title"/>
+                        <HBox spacing="16">
+                            <Button text="➕  Tambah Tugas Baru"
+                                    onAction="#goToTasks"
+                                    styleClass="btn-primary"/>
+                            <Button text="📋  Lihat Semua Tugas"
+                                    onAction="#goToTasks"
+                                    styleClass="btn-secondary"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Info Section -->
+                    <VBox styleClass="info-card" spacing="10">
+                        <Label text="ℹ️  Tentang TaskFlow" styleClass="section-title"/>
+                        <Label text="TaskFlow adalah aplikasi manajemen tugas sederhana yang membantu kamu mengorganisir pekerjaan sehari-hari. Tambahkan tugas baru, tandai yang sudah selesai, dan pantau progress kamu dengan mudah."
+                               styleClass="info-text"
+                               wrapText="true"/>
+                    </VBox>
+
+                </VBox>
+            </ScrollPane>
+
+        </VBox>
+    </center>
+
+</BorderPane>

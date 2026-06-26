@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.TaskController"
+            styleClass="app-root"
+            prefWidth="1100" prefHeight="700">
+
+    <!-- ===== SIDEBAR ===== -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="240" spacing="0">
+
+            <!-- Brand -->
+            <HBox styleClass="sidebar-brand" alignment="CENTER_LEFT" spacing="12">
+                <Label text="✓" styleClass="sidebar-logo"/>
+                <Label text="TaskFlow" styleClass="sidebar-brand-text"/>
+            </HBox>
+
+            <!-- Navigation -->
+            <VBox styleClass="sidebar-nav" spacing="4" VBox.vgrow="ALWAYS">
+
+                <Label text="MENU" styleClass="nav-section-label"/>
+
+                <Button text="  🏠  Dashboard"
+                        onAction="#goToDashboard"
+                        styleClass="nav-btn"
+                        maxWidth="Infinity"/>
+
+                <Button text="  📋  Tugas Saya"
+                        onAction="#goToTasks"
+                        styleClass="nav-btn, nav-btn-active"
+                        maxWidth="Infinity"/>
+
+            </VBox>
+
+            <!-- User Profile -->
+            <VBox styleClass="sidebar-profile" spacing="8">
+                <Separator/>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="👤" style="-fx-font-size: 20px;"/>
+                    <VBox>
+                        <Label fx:id="usernameLabel" text="Admin" styleClass="profile-name"/>
+                        <Label text="Administrator" styleClass="profile-role"/>
+                    </VBox>
+                </HBox>
+                <Button text="🚪  Logout"
+                        onAction="#handleLogout"
+                        styleClass="btn-logout"
+                        maxWidth="Infinity"/>
+            </VBox>
+
+        </VBox>
+    </left>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <center>
+        <VBox styleClass="main-content" spacing="0">
+
+            <!-- Header -->
+            <HBox styleClass="main-header" alignment="CENTER_LEFT">
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="Manajemen Tugas" styleClass="page-title"/>
+                    <Label text="Kelola semua tugas kamu di sini" styleClass="page-subtitle"/>
+                </VBox>
+            </HBox>
+
+            <!-- Toolbar: Search + Filter + Buttons -->
+            <HBox styleClass="toolbar" alignment="CENTER_LEFT" spacing="12">
+
+                <!-- Search Field -->
+                <TextField fx:id="searchField"
+                           promptText="🔍  Cari tugas..."
+                           styleClass="search-field"
+                           prefWidth="250"/>
+
+                <!-- Filter ComboBox -->
+                <ComboBox fx:id="filterComboBox"
+                          styleClass="filter-combo"
+                          prefWidth="150"/>
+
+                <!-- Spacer -->
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <!-- Action Buttons -->
+                <Button text="➕  Tambah"
+                        onAction="#handleAddTask"
+                        styleClass="btn-primary"/>
+
+                <Button text="✏️  Edit"
+                        onAction="#handleEditTask"
+                        styleClass="btn-secondary"/>
+
+                <Button text="✓  Tandai"
+                        onAction="#handleMarkComplete"
+                        styleClass="btn-success"/>
+
+                <Button text="🗑  Hapus"
+                        onAction="#handleDeleteTask"
+                        styleClass="btn-danger"/>
+
+            </HBox>
+
+            <!-- Stats Bar -->
+            <HBox styleClass="stats-bar" spacing="24" alignment="CENTER_LEFT">
+                <Label fx:id="totalLabel" text="Total: 0" styleClass="stats-chip"/>
+                <Label fx:id="completedLabel" text="Selesai: 0" styleClass="stats-chip, stats-chip-green"/>
+                <Label fx:id="pendingLabel" text="Pending: 0" styleClass="stats-chip, stats-chip-orange"/>
+            </HBox>
+
+            <!-- Task Table -->
+            <TableView fx:id="taskTable"
+                       styleClass="task-table"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="55"/>
+                    <TableColumn fx:id="colTitle" text="Judul Tugas" prefWidth="220"/>
+                    <TableColumn fx:id="colDescription" text="Deskripsi" prefWidth="280"/>
+                    <TableColumn fx:id="colDueDate" text="Jatuh Tempo" prefWidth="130"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="140"/>
+                </columns>
+
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

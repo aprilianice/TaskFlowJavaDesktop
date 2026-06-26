@@ -1,0 +1,13 @@
+model\Task.class
+controller\TaskFormController.class
+service\AuthService.class
+app\Main.class
+util\SceneManager.class
+controller\DashboardController.class
+app\Launcher.class
+controller\LoginController.class
+controller\TaskController$1.class
+model\Task$Status.class
+service\TaskService.class
+controller\TaskController.class
+model\User.class
