@@ -13,6 +13,14 @@
     <property name="severity" value="error"/>
     <property name="fileExtensions" value="java"/>
 
+    <!-- ===== PANJANG BARIS (Line Length) ===== -->
+
+    <!-- Maksimal 200 karakter per baris -->
+    <module name="LineLength">
+        <property name="max" value="200"/>
+    </module>
+
+
     <module name="TreeWalker">
 
         <!-- ===== PENAMAAN (Naming Conventions) ===== -->
@@ -37,14 +45,8 @@
             <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
         </module>
 
-        <!-- ===== PANJANG BARIS (Line Length) ===== -->
 
-        <!-- Maksimal 200 karakter per baris -->
-        <module name="LineLength">
-            <property name="max" value="200"/>
-        </module>
-
-        <!-- ===== KERAPIHAN KODE (Code Hygiene) ===== -->
+        <!-- KERAPIHAN KODE -->
 
         <!-- Tidak boleh ada multiple statement dalam satu baris -->
         <module name="OneStatementPerLine"/>
