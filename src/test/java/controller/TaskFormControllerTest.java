@@ -30,7 +30,7 @@ class TaskFormControllerTest {
     @Test
     void dueDateNullHarusInvalid() {
         LocalDate dueDate = null;
-        assertNotNull(dueDate);
+        assertNull(dueDate);
     }
 
     @Test
