@@ -114,6 +114,25 @@
                 </configuration>
             </plugin>
 
+            <!-- 5. Checkstyle Plugin - Continuous Inspection -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <!-- Lokasi file aturan Checkstyle -->
+                    <configLocation>checkstyle.xml</configLocation>
+                    <!-- Tampilkan hasil di console/log GitHub Actions -->
+                    <consoleOutput>true</consoleOutput>
+                    <!-- Pipeline GAGAL jika ada violation -->
+                    <failsOnError>true</failsOnError>
+                    <!-- Hanya periksa source code utama, bukan test -->
+                    <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                    <!-- Lokasi output laporan -->
+                    <outputFile>${project.build.directory}/checkstyle-result.xml</outputFile>
+                </configuration> 
+            </plugin>
+
         </plugins>
     </build>
 </project>
