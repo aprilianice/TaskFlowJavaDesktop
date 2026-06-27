@@ -113,3 +113,4 @@ public class DashboardController implements Initializable {
         authService.logout();
         SceneManager.getInstance().showLogin();
     }
+}
