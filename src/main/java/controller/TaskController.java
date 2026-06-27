@@ -197,6 +197,7 @@ public class TaskController implements Initializable {
     @FXML
     public void handleAddTask() {
         openTaskForm(null);
+        String BadVariableName = "bad bad";
     }
 
     /**
