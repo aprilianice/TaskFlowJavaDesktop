@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+    "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<!--
+    Konfigurasi Checkstyle untuk Continuous Inspection
+    Proyek: TaskFlow Java Desktop
+    Komponen: Halaman Task (TaskController.java)
+-->
+<module name="Checker">
+
+    <property name="severity" value="error"/>
+    <property name="fileExtensions" value="java"/>
+
+    <module name="TreeWalker">
+
+        <!-- ===== PENAMAAN (Naming Conventions) ===== -->
+
+        <!-- Nama kelas harus PascalCase, contoh: TaskController -->
+        <module name="TypeName">
+            <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- Nama method harus camelCase, contoh: handleAddTask -->
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- Nama variabel lokal harus camelCase, contoh: selectedTask -->
+        <module name="LocalVariableName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- Nama parameter method harus camelCase -->
+        <module name="ParameterName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!-- ===== PANJANG BARIS (Line Length) ===== -->
+
+        <!-- Maksimal 200 karakter per baris -->
+        <module name="LineLength">
+            <property name="max" value="200"/>
+        </module>
+
+        <!-- ===== KERAPIHAN KODE (Code Hygiene) ===== -->
+
+        <!-- Tidak boleh ada multiple statement dalam satu baris -->
+        <module name="OneStatementPerLine"/>
+
+        <!-- Modifier harus dalam urutan yang benar: public static final, dll. -->
+        <module name="ModifierOrder"/>
+
+    </module>
+
+</module>
